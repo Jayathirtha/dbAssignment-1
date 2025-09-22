@@ -3,7 +3,7 @@ Problem Solving Case - BookMyShow
 
 ## P1 : 
 
-### Entities and Attributes**
+### Entities and Attributes
 
 1) **Movie**	MovieID (PK), Title, Language, Genre, Duration, Rating (e.g., UA), ReleaseDate	Information about the film itself.
 2) **Theatre**	TheatreID (PK), Name, Location/City, Address	Information about the venue.
@@ -11,7 +11,7 @@ Problem Solving Case - BookMyShow
 4) **Shows**	ShowID (PK), MovieID (FK), ScreenID (FK), ShowDateTime (Unique/Index), ShowDate, ShowTime	The schedule for a movie on a specific screen.
 5) **ShowFormat**	FormatID (PK), FormatName (e.g., 2D, 3D)	Details about the projection/audio technology for a show.
 
-----------------------------------------------------------------------------------------------------------
+
 
 ### Theatre Table 
 CREATE TABLE Theatre (
@@ -21,7 +21,7 @@ CREATE TABLE Theatre (
     Address TEXT
 );
 
-----------------------------------------------------------------------------------------------------------
+
 
 ### Movie Table
 CREATE TABLE Movie (
@@ -31,7 +31,7 @@ CREATE TABLE Movie (
     Rating TEXT,
     DurationMinutes INTEGER
 );
-----------------------------------------------------------------------------------------------------------
+
 
 
 ### Screen Table 
@@ -42,7 +42,7 @@ CREATE TABLE Screen (
     Capacity INTEGER,
     FOREIGN KEY (TheatreID) REFERENCES Theatre(TheatreID)
 );
-----------------------------------------------------------------------------------------------------------
+
 ### Show Table
 
 CREATE TABLE Shows (
@@ -55,13 +55,13 @@ CREATE TABLE Shows (
     FOREIGN KEY (MovieID) REFERENCES Movie(MovieID),
     FOREIGN KEY (ScreenID) REFERENCES Screen(ScreenID)
 );
-----------------------------------------------------------------------------------------------------------
+
 
 ### Sample Data for Theatre
 
 INSERT INTO Theatre (TheatreID, Name, Location) VALUES
 (1, 'PVR: Nexus ', 'Bengaluru');
-----------------------------------------------------------------------------------------------------------
+
 
 ### Sample Data for Movie
 
@@ -70,7 +70,7 @@ INSERT INTO Movie (MovieID, Title, Language, Rating, DurationMinutes) VALUES
 (102, 'Dune', 'English', 'UA', 155),
 (103, 'Dune: Part Two', 'English', 'UA', 166),
 (104, 'Avatar: The Way of Water', 'English', 'UA', 192);
-----------------------------------------------------------------------------------------------------------
+
 
  Sample Data for Screen
 
@@ -78,7 +78,7 @@ INSERT INTO Screen (ScreenID, TheatreID, Name, Capacity) VALUES
 (1, 1, 'Screen 1', 200),
 (2, 1, 'Screen 2 - ATMOS', 150),
 (3, 1, 'Screen 3 - Playhouse', 100);
-----------------------------------------------------------------------------------------------------------
+
 
 ### Sample Data for Show 
 
@@ -89,12 +89,12 @@ INSERT INTO Shows (ShowID, MovieID, ScreenID, ShowDate, ShowTime, FormatName) VA
 (1007, 103, 1, '2023-04-25', '13:15:00', '2D'),
 (1008, 104, 3, '2023-04-25', '13:10:00', '3D');
 
-----------------------------------------------------------------------------------------------------------
+
 
 ### P2- query to list down all the shows on a given date at a given theatre along with their respective show timings
 
 
-'''SELECT
+SELECT
     movie.Title,
     movie.Language,
     shows.ShowTime,
