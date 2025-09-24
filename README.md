@@ -90,13 +90,11 @@ INSERT INTO Screen (ScreenID, TheatreID, Name, Capacity) VALUES
 (2, 1, 'Screen 2 - ATMOS', 150),
 (3, 1, 'Screen 3 - Playhouse', 100);
 
-+----------+-----------+----------------------+----------+
 | ScreenID | TheatreID | Name                 | Capacity |
-+----------+-----------+----------------------+----------+
+|----------|-----------|----------------------|----------|
 |        1 |         1 | Screen 1             |      200 |
 |        2 |         1 | Screen 2 - ATMOS     |      150 |
 |        3 |         1 | Screen 3 - Playhouse |      100 |
-+----------+-----------+----------------------+----------+
 
 ### Sample Data for Show 
 
