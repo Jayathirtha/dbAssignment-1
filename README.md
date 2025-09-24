@@ -63,6 +63,11 @@ INSERT INTO Theatre (TheatreID, Name, Location) VALUES
 (1, 'PVR: Nexus ', 'Bengaluru');
 
 
+| TheatreID | Name        | Location  | Address |
+|-----------|-------------|-----------|---------|
+|         1 | PVR: Nexus  | Bengaluru | NULL    |
+
+
 ### Sample Data for Movie
 
 INSERT INTO Movie (MovieID, Title, Language, Rating, DurationMinutes) VALUES
@@ -71,6 +76,12 @@ INSERT INTO Movie (MovieID, Title, Language, Rating, DurationMinutes) VALUES
 (103, 'Dune: Part Two', 'English', 'UA', 166),
 (104, 'Avatar: The Way of Water', 'English', 'UA', 192);
 
+| MovieID | Title                    | Language | Rating | DurationMinutes |
+|---------|--------------------------|----------|--------|-----------------|
+|     101 | A                        | Kannada  | U      |             150 |
+|     102 | Dune                     | English  | UA     |             155 |
+|     103 | Dune: Part Two           | English  | UA     |             166 |
+|     104 | Avatar: The Way of Water | English  | UA     |             192 |
 
  Sample Data for Screen
 
@@ -79,6 +90,13 @@ INSERT INTO Screen (ScreenID, TheatreID, Name, Capacity) VALUES
 (2, 1, 'Screen 2 - ATMOS', 150),
 (3, 1, 'Screen 3 - Playhouse', 100);
 
++----------+-----------+----------------------+----------+
+| ScreenID | TheatreID | Name                 | Capacity |
++----------+-----------+----------------------+----------+
+|        1 |         1 | Screen 1             |      200 |
+|        2 |         1 | Screen 2 - ATMOS     |      150 |
+|        3 |         1 | Screen 3 - Playhouse |      100 |
++----------+-----------+----------------------+----------+
 
 ### Sample Data for Show 
 
@@ -89,7 +107,13 @@ INSERT INTO Shows (ShowID, MovieID, ScreenID, ShowDate, ShowTime, FormatName) VA
 (1007, 103, 1, '2023-04-25', '13:15:00', '2D'),
 (1008, 104, 3, '2023-04-25', '13:10:00', '3D');
 
-
+| ShowID | MovieID | ScreenID | ShowDate   | ShowTime | FormatName |
+|--------|---------|----------|------------|----------|------------|
+|   1001 |     101 |        1 | 2023-04-25 | 12:15:00 | 2D         |
+|   1002 |     102 |        2 | 2023-04-25 | 13:00:00 | 2D         |
+|   1003 |     102 |        2 | 2023-04-25 | 16:00:00 | 2D         |
+|   1007 |     103 |        1 | 2023-04-25 | 13:15:00 | 2D         |
+|   1008 |     104 |        3 | 2023-04-25 | 13:10:00 | 3D         |
 
 ### P2- query to list down all the shows on a given date at a given theatre along with their respective show timings
 
@@ -110,3 +134,14 @@ WHERE
     AND shows.ShowDate = '2023-04-25'
 ORDER BY
     movie.Title, shows.ShowTime;
+
+| Title                    | Language | ShowTime | FormatName |
+|--------------------------|----------|----------|------------|
+| A                        | Kannada  | 12:15:00 | 2D         |
+| Avatar: The Way of Water | English  | 13:10:00 | 3D         |
+| Dune                     | English  | 13:00:00 | 2D         |
+| Dune                     | English  | 16:00:00 | 2D         |
+| Dune: Part Two           | English  | 13:15:00 | 2D         |
+
+
+(onecompiler)[https://onecompiler.com/mysql/43xmrcxvn]
